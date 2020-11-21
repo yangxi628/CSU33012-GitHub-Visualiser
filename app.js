@@ -1,6 +1,6 @@
 // handleInput() -> main(user:string)
 function handleInput() {
-    var user = document.getElementById("textBox").value;
+    var user = document.getElementById("user").value;
     main(user);
 }
 
@@ -14,5 +14,7 @@ async function getRequest(url) {
 // main(user:string)
 async function main(user) {
     let url = `https://api.github.com/users/${user}/repos`;
-    let repo = await GetRequest(url).catch(error => console.error(error));
+    let repo = await getRequest(url).catch(error => console.error(error));
+
+    console.log(repo)
 }
