@@ -1,7 +1,8 @@
 # CSU33012 GitHub Visualiser
+
 Integrating the GitHub REST API v3 to build a visualisation of the data available to elucidate an aspect of the software engineering process using the **[D3js](https://d3js.org)** library to visualise the data.
 
-# Getting Started
+## Getting Started
 
 ## Prerequisites
 
@@ -12,5 +13,11 @@ The project requires **Docker** to be installed. Please see below the instructio
 * **[Ubuntu](https://docs.docker.com/engine/install/ubuntu/)**
 
 ## Installation
+
+```git clone https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser.git```
+
+```docker build -t html-server-image:v1 .```
+
+```docker run -d -p 80:80 html-server-image:v1```
 
 ## Usage
