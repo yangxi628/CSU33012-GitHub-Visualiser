@@ -14,10 +14,14 @@ The project requires **Docker** to be installed. Please see below the instructio
 
 ## Installation
 
-```git clone https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser.git```
+To run this project you need to clone the repository:\
+```git clone https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser.git```\
+```cd CSU33012-GitHub-Visualiser```
 
-```docker build -t html-server-image:v1 .```
+Build the Docker Image for the Server:\
+```docker build -t GitHub-Visualiser .```
 
-```docker run -d -p 80:80 html-server-image:v1```
+Run the following command to run the container server:\
+```docker run -d -p 80:80 GitHub-Visualiser```
 
 ## Usage
