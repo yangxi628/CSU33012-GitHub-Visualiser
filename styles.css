@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+    margin: 0.2rem;
     font-family: Rubik;
     color: rgb(255 255 255);
 }
@@ -10,12 +10,14 @@ html {
   
 body {
     display: flex;
-    background: url("https://www.itl.cat/pngfile/big/157-1572191_hd-wallpapers-for-website-background-cool-background-image.jpg");
+    background-color: #A3BCB6;
     background-size: cover;
 }
   
 * {
     font-size: 1.6rem;
+    color: black;
+    font-size: medium;
 }
   
 input {
@@ -32,13 +34,14 @@ input {
       
 input, button {
     border: 0;
-    height: 4rem;
-    padding: 0 calc(4rem * 0.5);
+    height: 3rem;
+    padding: 0 calc(2rem * 0.3);
     border-radius: calc(4rem * 0.3);
-    box-shadow: 0 0 2rem rgb(0, 0, 0, 20%);
+    box-shadow: 0 0 2rem rgba(255, 255, 255, 0.4);
 }
 
 button {
     cursor: pointer;
-    background: rgb(7 2 18);
+    background: white;
+    color:green;
 } 
