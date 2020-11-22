@@ -10,7 +10,7 @@ html {
   
 body {
     display: flex;
-    background-color: #A3BCB6;
+    background-color: #d8bfd8e0;
     background-size: cover;
 }
   
@@ -43,5 +43,5 @@ input, button {
 button {
     cursor: pointer;
     background: white;
-    color:green;
+    color: black;
 } 
