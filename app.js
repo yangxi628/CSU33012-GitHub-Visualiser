@@ -2,14 +2,22 @@
 function handleInput() {
     var user = document.getElementById("user").value;
     var token = document.getElementById("token").value !== "" ? document.getElementById("token").value : undefined;
-    console.log(token);
-    console.log(user)
+    
     main(user, token);
 }
 
-// getRequest(url:string) -> data:json
-async function getRequest(url) {
-    const response = await fetch(url);
+// getRequest(url:string, token:string) -> data:json
+async function getRequest(url, token) {
+
+    const headers = {
+        'Authorization':`Token ${token}`
+    }
+
+    const response = (token == undefined) ? await fetch(url) : await fetch(url, {
+        "method": "GET",
+        "headers": headers
+    });
+    
     let data = await response.json();
     return data;
 }
@@ -17,7 +25,8 @@ async function getRequest(url) {
 // main(user:string, token:string)
 async function main(user, token) {
     let url = `https://api.github.com/users/${user}/repos`;
-    let repo = await getRequest(url).catch(error => console.error(error));
+
+    let repo = await getRequest(url, token).catch(error => console.error(error));
 
     console.log(repo)
 }
