@@ -28,5 +28,17 @@ async function main(user, token) {
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
 
-    console.log(repo)
+    commitsOverTime(repo, user, token);
+    console.log(repo);    
+}
+
+async function commitsOverTime(repo, user, token) {
+    
+    for (i in repo) {
+        let url = `https://api.github.com/repos/${user}/${repo[i].name}/commits`;
+        let commits = await getRequest(url, token).catch(error => console.error(error));
+        console.log(repo[i].name + ': ' + commits.length);
+    }
+    
+    
 }
