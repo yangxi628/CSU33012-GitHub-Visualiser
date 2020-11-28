@@ -27,7 +27,7 @@ async function main(user, token) {
     let url = `https://api.github.com/users/${user}/repos`;
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
-    console.log(repo);
+
     get_commits_histogram(repo, user, token);
     get_language_pie(repo, user, token);
 }
@@ -36,16 +36,31 @@ async function get_commits_histogram(repo, user, token) {
     let label = [];
     let data = [];
     let backgroundColor = [];
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     for (i in repo) {
-        let reponame = repo[i].name;
         let url = `https://api.github.com/repos/${user}/${repo[i].name}/commits?per_page=100`;
         let commits = await getRequest(url, token).catch(error => console.error(error));
-        console.log(reponame);
 
-        label.push(reponame);
-        data.push(commits.length);
-        backgroundColor.push(`rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`);
+        
+        for (j in commits) {
+            let date = commits[j].commit.author.date;
+
+            var d = new Date(date);
+            let day = days[d.getDay()];
+
+            if (label.includes(day)) {
+                for (i = 0; i < label.length; i++)
+                    if (day == label[i])
+                        data[i] += 1;
+                    
+            } else {
+                label.push(day);
+                data.push(1);
+                backgroundColor.push(`rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`);
+            }
+        }
+
     }
     
     draw1('commits', 'polarArea', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
