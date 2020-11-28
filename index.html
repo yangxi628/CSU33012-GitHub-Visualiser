@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="" class="form-inline">
+    <!-- <form action="" class="form-inline">
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon">GitHub Username: </span>
@@ -25,19 +25,26 @@
             </div>
         </div>
         <button onclick="handleInput()">Submit </button>
-    </form>
-    
-    <!-- <div>
-            GitHub Username: <input id="user" type="text"/>
-        </div>
-        <div>
-            Auth Token: <input id="token" type="text" placeholder="optional"/>
-        </div> -->
-
+    </form> -->
+    <div>
+        GitHub Username: <input id="user" type="text" />
+    </div>
+    <div>
+        Auth Token: <input id="token" type="text" placeholder="optional" />
+    </div>
+    <button onclick="handleInput()">Submit </button>
 
     <div class="container">
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart"><canvas>
     </div>
+
+    <div class="container">
+        <canvas id="commits"></canvas>
+    </div>
+
+    <!-- <div class="container">
+        <canvas id="commits"></canvas>
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="app.js" defer></script>

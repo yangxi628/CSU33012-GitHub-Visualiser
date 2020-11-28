@@ -27,8 +27,28 @@ async function main(user, token) {
     let url = `https://api.github.com/users/${user}/repos`;
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
-
+    console.log(repo);
+    get_commits_histogram(repo, user, token);
     get_language_pie(repo, user, token);
+}
+
+async function get_commits_histogram(repo, user, token) {
+    let label = [];
+    let data = [];
+    let backgroundColor = [];
+
+    for (i in repo) {
+        let reponame = repo[i].name;
+        let url = `https://api.github.com/repos/${user}/${repo[i].name}/commits?per_page=100`;
+        let commits = await getRequest(url, token).catch(error => console.error(error));
+        console.log(reponame);
+
+        label.push(reponame);
+        data.push(commits.length);
+        backgroundColor.push(`rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`);
+    }
+    
+    draw1('commits', 'polarArea', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
 }
 
 async function get_language_pie(repo, user, token) {
@@ -56,13 +76,16 @@ async function get_language_pie(repo, user, token) {
 
     }
     
-    draw('myChart', 'pie', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
+    draw2('myChart', 'pie', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
 }
 
-function draw(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {    
+function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {  
+
+    if(chart1 != null) chart1.destroy();
+    
     let myChart = document.getElementById(ctx).getContext('2d');
 
-    var chart = new Chart(myChart, {
+    chart1 = new Chart(myChart, {
         type: type,
         data: {
             labels: label,
@@ -104,3 +127,56 @@ function draw(ctx, type, datasetLabel, titleText, label, data, backgroundColor) 
         }
     });
 }
+
+function draw2(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {  
+
+    if(chart2 != null) chart2.destroy();
+    
+    let myChart = document.getElementById(ctx).getContext('2d');
+
+    chart2 = new Chart(myChart, {
+        type: type,
+        data: {
+            labels: label,
+            datasets: [{
+                label: datasetLabel,
+                data: data,
+                backgroundColor: backgroundColor,
+                borderWidth: 1,
+                borderColor: '#777',
+                hoverBorderWidth: 2,
+                hoverBorderColor: '#000'
+            }],
+
+        },
+        options: {
+            title: {
+                display: true,
+                text: titleText,
+                fontSize: 20
+            },
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                    fontColor: '#000'
+                }
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    bottom: 0,
+                    top: 0
+                }
+            },
+            tooltips: {
+                enabled: true
+            }
+        }
+    });
+}
+
+
+var chart1 = null;
+var chart2 = null;

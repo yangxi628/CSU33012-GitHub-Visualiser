@@ -9,6 +9,7 @@ html {
 }
   
 body {
+    display: flex;
     background-color: #d8bfd8e0;
     background-size: cover;
 } 
