@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GitHub Visualiser</title>
-        <link rel="icon" href="assets/favicon.ico">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> GitHub Visualiser </title>
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">GitHub Username: </span>
+                <input id="user" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">Auth Token: </span>
+                <input id="token" type="text" class="form-control" placeholder="Optional">
+            </div>
+        </div>
+        <button onclick="handleInput()">Submit </button>
+    </form>
+    
+    <!-- <div>
             GitHub Username: <input id="user" type="text"/>
         </div>
         <div>
             Auth Token: <input id="token" type="text" placeholder="optional"/>
-        </div>
-        <button onclick="handleInput()">Submit </button>
+        </div> -->
 
-        <div class="container">
-            <canvas id="myChart"></canvas>
-        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
-        <script src="app.js" defer></script>
-    </body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="app.js" defer></script>
+</body>
+
 </html>

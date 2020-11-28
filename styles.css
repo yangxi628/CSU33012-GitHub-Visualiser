@@ -2,17 +2,16 @@
     margin: 0.2rem;
     font-family: Rubik;
     color: rgb(255 255 255);
-}
+} 
   
 html {
-    font-size: 62.5%;
+    font-size: 70%;
 }
   
 body {
-    display: flex;
     background-color: #d8bfd8e0;
     background-size: cover;
-}
+} 
   
 * {
     font-size: 1.6rem;
@@ -44,4 +43,4 @@ button {
     cursor: pointer;
     background: white;
     color: black;
-} 
+}  

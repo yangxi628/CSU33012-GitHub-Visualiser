@@ -28,10 +28,10 @@ async function main(user, token) {
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
 
-    language(repo, user, token);
+    get_language_pie(repo, user, token);
 }
 
-async function language(repo, user, token) {
+async function get_language_pie(repo, user, token) {
     let label = [];
     let data = [];
     let backgroundColor = [];
@@ -57,13 +57,12 @@ async function language(repo, user, token) {
     }
     
     draw('myChart', 'pie', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
-
 }
 
-function draw(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {
+function draw(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {    
     let myChart = document.getElementById(ctx).getContext('2d');
 
-    new Chart(myChart, {
+    var chart = new Chart(myChart, {
         type: type,
         data: {
             labels: label,
