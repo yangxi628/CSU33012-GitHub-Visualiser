@@ -56,7 +56,7 @@ async function language(repo, user, token) {
 
     }
     
-    draw('myChart', 'pie', 'languages', 'User Languages (in bytes)', label, data, backgroundColor);
+    draw('myChart', 'pie', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
 
 }
 
