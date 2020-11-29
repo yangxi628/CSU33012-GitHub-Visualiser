@@ -123,7 +123,7 @@ async function get_addition_deletion(repos, user, token) {
     addition = addition.filter(x => x != undefined)
     deletion = deletion.filter(x => x != undefined)
 
-    draw3('insertion', 'bar', 'line', label, commits, deletion, addition);
+    draw3('insertion', 'bar', 'line', '🧐 Additions, Deletions and Commits per Repository 🧐', label, commits, deletion, addition);
 }
 
 function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {
@@ -224,7 +224,7 @@ function draw2(ctx, type, datasetLabel, titleText, label, data, backgroundColor)
     });
 }
 
-function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
+function draw3(ctx, type, type2, titleText, datasetLabel, dataset1, dataset2, dataset3) {
     if (chart3 != null) chart3.destroy();
 
     let myChart = document.getElementById(ctx).getContext('2d');
@@ -237,7 +237,9 @@ function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
                 type: type2,
                 label: 'commits',
                 borderColor: 'rgba(0, 0, 255, 0.2)',
-                borderWidth: 2,
+                borderWidth: 1,
+                hoverBorderWidth: 2,
+                hoverBorderColor: '#000',
                 fill: false,
                 data: dataset1,
                 yAxisID: 'y-axis-2'
@@ -248,7 +250,9 @@ function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
                 backgroundColor: 'rgba(255, 0, 0, 0.2)',
                 data: dataset2,
                 borderColor: 'white',
-                borderWidth: 2,
+                borderWidth: 1,
+                hoverBorderWidth: 2,
+                hoverBorderColor: '#000',
                 yAxisID: 'y-axis-1'
             },
             {
@@ -256,6 +260,9 @@ function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
                 label: 'insertion',
                 backgroundColor: 'rgba(0, 255, 0, 0.2)',
                 data: dataset3,
+                borderWidth: 1,
+                hoverBorderWidth: 2,
+                hoverBorderColor: '#000',
                 yAxisID: 'y-axis-1'
             }]
 
@@ -264,27 +271,35 @@ function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
             responsive: true,
             title: {
                 display: true,
-                text: 'Chart.js Combo Bar Line Chart'
+                text: titleText,
+                textSize: 20
+            }, 
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                    fontColor: '#000'
+                }
             },
             tooltips: {
                 mode: 'index',
-                intersect: true
+                intersect: true,
+                enabled: true
             },
             scales: {
                 yAxes: [{
-                    type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                    type: 'linear',
                     display: true,
                     position: 'left',
                     id: 'y-axis-1',
                 }, {
-                    type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                    type: 'linear', 
                     display: true,
                     position: 'right',
                     id: 'y-axis-2',
 
-                    // grid line settings
                     gridLines: {
-                        drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        drawOnChartArea: false, 
                     },
                 }],
             }
