@@ -29,7 +29,8 @@ async function main(user, token) {
     let repo = await getRequest(url, token).catch(error => console.error(error));
 
     get_addition_deletion(repo, user, token);
-    // get_language_pie(repo, user, token);
+    get_language_pie(repo, user, token);
+    get_commits_polarArea(repo, user, token);
 }
 
 async function get_commits_polarArea(repo, user, token) {
@@ -100,7 +101,6 @@ async function get_addition_deletion(repos, user, token) {
     let deletion = [];
 
     for (repo in repos) {
-        // console.log(repo);
         let url = `https://api.github.com/repos/${user}/${repos[repo].name}/stats/contributors`;
         let stats = await getRequest(url, token).catch(error => console.log(error));
         label.push(repos[repo].name);
@@ -117,6 +117,11 @@ async function get_addition_deletion(repos, user, token) {
             }
         }
     }
+
+    label = label.filter((x, i) => commits[i], addition[i], deletion[i])
+    commits = commits.filter(x => x != undefined)
+    addition = addition.filter(x => x != undefined)
+    deletion = deletion.filter(x => x != undefined)
 
     draw3('insertion', 'bar', 'line', label, commits, deletion, addition);
 }
@@ -219,7 +224,6 @@ function draw2(ctx, type, datasetLabel, titleText, label, data, backgroundColor)
     });
 }
 
-// function draw3(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {  
 function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
     if (chart3 != null) chart3.destroy();
 
@@ -291,5 +295,3 @@ function draw3(ctx, type, type2, datasetLabel, dataset1, dataset2, dataset3) {
 var chart1 = null;
 var chart2 = null;
 var chart3 = null;
-
-// draw3('insertion');
