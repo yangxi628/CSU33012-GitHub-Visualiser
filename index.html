@@ -11,25 +11,75 @@
 </head>
 
 <body>
-    <div>
-        GitHub Username: <input id="user" type="text" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                GitHub Username: <input id="user" type="text" />
+                Auth Token: <input id="token" type="text" placeholder="optional" />
+                <button onclick="handleInput()">Submit </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="well">
+                    <p>Current user info</p>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="well">
+                            <canvas id="language"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="well">
+                            <canvas id="commits"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well">
+                            <canvas id="insertion"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        Auth Token: <input id="token" type="text" placeholder="optional" />
-    </div>
-    <button onclick="handleInput()">Submit </button>
+    <!-- <div class="container-fluid">
+        <div class="row content">
 
-    <div class="container">
-        <canvas id="commits"></canvas>
-    </div>
+            <div class="col-sm-12">
+                GitHub Username: <input id="user" type="text" />
+                Auth Token: <input id="token" type="text" placeholder="optional" />
+                <button onclick="handleInput()">Submit </button>
+            </div>
+            <br>
+            <div class="col-sm-2">
+                <p>current user info</p>
+            </div>
+            <div class="col-sm-5">
+                <canvas id="language"></canvas>
+            </div>
+            <div class="col-sm-5">
+                <canvas id="commits"></canvas>
+            </div>
 
-    <div class="container">
-        <canvas id="language"><canvas>
-    </div>
 
-    <div class="container">
-        <canvas id="insertion"></canvas>
-    </div>
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="well">
+                        <div class="container">
+                            <canvas id="insertion"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <script src="app.js" defer></script>
