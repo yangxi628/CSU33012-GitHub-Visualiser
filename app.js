@@ -3,6 +3,11 @@ function handleInput() {
     var user = document.getElementById("user").value;
     var token = document.getElementById("token").value !== "" ? document.getElementById("token").value : undefined;
 
+    if (chart1 != null) chart1.destroy();
+    if (chart2 != null) chart2.destroy();
+    if (chart3 != null) chart3.destroy();
+
+
     main(user, token);
 }
 
@@ -41,11 +46,50 @@ async function main(user, token) {
 }
 
 function create_sidebar(user_info) {
-    let img = document.createElement('img');
-    img.src = user_info.avatar_url;
-    img.className = 'img-fluid';
-    let src = document.getElementById('user-image');
-    src.appendChild(img);
+    console.log(user_info)
+    let img = document.getElementById('img');
+    img.src = user_info.avatar_url
+
+    let name = document.getElementById('name');
+    name.innerHTML = user_info.name;
+
+    let login = document.getElementById('login');
+    login.innerHTML = user_info.login;
+
+    let bio = document.getElementById('bio');
+    bio.innerHTML = user_info.bio;
+
+    let hireable = document.getElementById('hireable');
+    hireable.innerHTML = (user_info.hireable != null) ? 'Yes' : 'No';
+
+    let created_at = document.getElementById('created_at');
+    console.log(user_info.created_at)
+    created_at.innerHTML = user_info.created_at;
+
+    let followers = document.getElementById('followers');
+    followers.innerHTML = user_info.followers;
+
+    let following = document.getElementById('following');
+    following.innerHTML = user_info.following;
+
+    let location = document.getElementById('location');
+    location.innerHTML = user_info.location;
+
+    let public_repos = document.getElementById('public_repos');
+    public_repos.innerHTML = user_info.public_repos;
+
+    
+    // name
+    // login
+    // bio
+    // email
+    // hireable
+    // create_at
+    // followers
+    // following
+    // location
+    // public_repos
+    // total_private_repos
 }
 
 async function get_commits_polarArea(repo, user, token) {
@@ -143,8 +187,6 @@ async function get_addition_deletion(repos, user, token) {
 
 function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {
 
-    if (chart1 != null) chart1.destroy();
-
     let myChart = document.getElementById(ctx).getContext('2d');
 
     chart1 = new Chart(myChart, {
@@ -192,8 +234,6 @@ function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor)
 
 function draw2(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {
 
-    if (chart2 != null) chart2.destroy();
-
     let myChart = document.getElementById(ctx).getContext('2d');
 
     chart2 = new Chart(myChart, {
@@ -240,8 +280,6 @@ function draw2(ctx, type, datasetLabel, titleText, label, data, backgroundColor)
 }
 
 function draw3(ctx, type, type2, titleText, datasetLabel, dataset1, dataset2, dataset3) {
-    if (chart3 != null) chart3.destroy();
-
     let myChart = document.getElementById(ctx).getContext('2d');
 
     chart3 = new Chart(myChart, {
@@ -287,11 +325,11 @@ function draw3(ctx, type, type2, titleText, datasetLabel, dataset1, dataset2, da
             title: {
                 display: true,
                 text: titleText,
-                textSize: 20
+                fontSize: 20
             }, 
             legend: {
                 display: true,
-                position: 'bottom',
+                position: 'top',
                 labels: {
                     fontColor: '#000'
                 }
