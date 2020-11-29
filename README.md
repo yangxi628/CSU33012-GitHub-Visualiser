@@ -10,7 +10,7 @@ Integrating the **[GitHub REST API v3](https://developer.github.com/v3/)** to bu
 
 > Integrate the GitHub API to retrieve and display data regarding the logged in developer: **[HERE](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/releases/tag/v1.0)**
 
-> Integrate the GitHub API to build visualisation of data available that elucidates some aspect of the software engineering process, such as a social graph of developers and projects, or a visualisation of individual of team performance: **[CURRENT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/)**
+> Integrate the GitHub API to build a visualisation of data available that elucidates some aspect of the software engineering process, such as a social graph of developers and projects, or a visualisation of individual of team performance: **[CURRENT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/)**
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Run the following command to run the container server:\
 To view the GitHub visualiser, visit:\
 ```localhost:80```
 
-On the page there will be 2 user inputs, GitHub username and Auth Token. For a less restricted access experience of the GitHub API, you will need an Auth Token which can be found in your **[settings](https://github.com/settings/tokens)**. This will allow you (as the user) to not be restricted to 60 API calls (which equates to about 2-3 users depending on the amount of repositories they have) and instead be allowed 600 API calls which is plenty for testing out the visualiser.
+On the page, there will be 2 user inputs, GitHub username and Auth Token. For a less restricted access experience of the GitHub API, you will need an Auth Token which can be found in your **[settings](https://github.com/settings/tokens)**. This will allow you (as the user) to not be restricted to 60 API calls (which equates to about 2-3 users depending on the number of repositories they have) and instead be allowed 600 API calls which are plenty for testing out the visualiser.
 
 To stop the container, we need to use the name we set earlier to the container, which is `github_visualiser` if you're following along. So all you have to do is:\
 ```docker stop github_visualiser```
@@ -58,11 +58,11 @@ The 3 aspects of measuring software engineering I focused on were:
 * Amount of commits per day.
 * Total code added/remove per repository.
 
-The first aspect is that the more proficient a user is at a particular programming language, the more that user uses the language which corresponding to the ratio amount on the pie chart. 
+The first aspect is that the more proficient a user is at a particular programming language, the more that user uses the language which corresponding to the ratio amount on the pie chart.
 ![Programming Languages in bytes](demo/graph1.png)
 
-The second aspect is that the user can view the amount of commits per day of the week to assess which day of the week you're most productive. In the following chart, it shows that I am most productive on Thursdays and least productive on Wednesday. Using this information I could adjust my schedule to tailor more to my productive days.
+The second aspect is that the user can view the number of commits per day of the week to assess which day of the week you're most productive. In the following chart, it shows that I am most productive on Thursdays and least productive on Wednesday. Using this information I could adjust my schedule to tailor more to my productive days.
 ![Commits Per Day](demo/graph2.png)
 
-The last aspect is to measure if the amount of insertions and deletion vs commits would have any correlation. From the graph, you can see that the amount of insertions vs deletion doesn't correlate to the amount of commits. eg. my `hacker-new-application` repository has the most insertions but has a low commits whereas my `healthy-ageing` repository has low insertions but a high amount of commits.
+The last aspect is to measure if the number of insertions and deletion vs commits would have any correlation. From the graph, you can see that the amount of insertions vs deletion doesn't correlate to the number of commits. eg. my `hacker-new-application` repository has the most insertions but has low commits whereas my `healthy-ageing` repository has low insertions but a high amount of commits.
 ![Total Add/Remove per Repository](demo/graph3.png)
