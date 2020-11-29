@@ -66,3 +66,6 @@ The second aspect is that the user can view the number of commits per day of the
 
 The last aspect is to measure if the number of insertions and deletion vs commits would have any correlation. From the graph, you can see that the amount of insertions vs deletion doesn't correlate to the number of commits. eg. my `hacker-new-application` repository has the most insertions but has low commits whereas my `healthy-ageing` repository has low insertions but a high amount of commits.
 ![Total Add/Remove per Repository](demo/graph3.png)
+
+## License
+Distributed under the [MIT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/blob/master/LICENSE) License. See `LICENSE` for more information.
