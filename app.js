@@ -1,6 +1,6 @@
 // handleInput() -> main(user:string, token:string)
 function handleInput() {
-    var user = document.getElementById("user").value;
+    var user = document.getElementById("user").value !== "" ? document.getElementById("user").value : 'ahmedhamedaly';
     var token = document.getElementById("token").value !== "" ? document.getElementById("token").value : undefined;
 
     if (chart1 != null) chart1.destroy();

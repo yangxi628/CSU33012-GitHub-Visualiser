@@ -8,9 +8,9 @@ Integrating the **[GitHub REST API v3](https://developer.github.com/v3/)** to bu
 
 ## Getting Started
 
-> Integrate the GitHub API to retrieve and display data regarding the logged in developer: **[COMMIT](TODO)**
+> Integrate the GitHub API to retrieve and display data regarding the logged in developer: **[HERE](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/releases/tag/v1.0)**
 
-> Integrate the GitHub API to build visualisation of data available tht elucidates some aspect of the softare engineering process, such as a social graph of developers and projects, or a visualisation of indiviudal of team performance: **[COMMIT](TODO)**
+> Integrate the GitHub API to build visualisation of data available tht elucidates some aspect of the softare engineering process, such as a social graph of developers and projects, or a visualisation of indiviudal of team performance: **[CURRENT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/)**
 
 ## Prerequisites
 
