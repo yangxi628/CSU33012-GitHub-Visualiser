@@ -25,12 +25,27 @@ async function getRequest(url, token) {
 // main(user:string, token:string)
 async function main(user, token) {
     let url = `https://api.github.com/users/${user}/repos`;
+    
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
+
+    url = `https://api.github.com/users/${user}`;
+    let user_info = await getRequest(url, token).catch(error => console.error(error));
+
+    
+    create_sidebar(user_info);
 
     get_addition_deletion(repo, user, token);
     get_language_pie(repo, user, token);
     get_commits_polarArea(repo, user, token);
+}
+
+function create_sidebar(user_info) {
+    let img = document.createElement('img');
+    img.src = user_info.avatar_url;
+    img.className = 'img-fluid';
+    let src = document.getElementById('user-image');
+    src.appendChild(img);
 }
 
 async function get_commits_polarArea(repo, user, token) {
