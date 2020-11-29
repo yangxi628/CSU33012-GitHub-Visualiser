@@ -56,7 +56,7 @@ function create_sidebar(user_info) {
     login.innerHTML = `<b>Login ID: </b>${user_info.login}`;
 
     let bio = document.getElementById('bio');
-    bio.innerHTML = `<b>Bio: </b>${user_info.bio}`;
+    bio.innerHTML = `<b>Bio: </b>${user_info.bio == null ? 'User hasn\'t set a bio :(' : user_info.bio}`;
 
     let hireable = document.getElementById('hireable');
     hireable.innerHTML = `<b>Hireable: </b>${(user_info.hireable != null) ? 'Yes' : 'No'}`;
