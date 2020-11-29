@@ -28,11 +28,11 @@ async function main(user, token) {
 
     let repo = await getRequest(url, token).catch(error => console.error(error));
 
-    get_commits_histogram(repo, user, token);
+    get_commits_polarArea(repo, user, token);
     get_language_pie(repo, user, token);
 }
 
-async function get_commits_histogram(repo, user, token) {
+async function get_commits_polarArea(repo, user, token) {
     let label = [];
     let data = [];
     let backgroundColor = [];
@@ -63,7 +63,7 @@ async function get_commits_histogram(repo, user, token) {
 
     }
     
-    draw1('commits', 'polarArea', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
+    draw1('commits', 'polarArea', 'commits', `📊 ${user} Commits per Day 📊`, label, data, backgroundColor);
 }
 
 async function get_language_pie(repo, user, token) {
@@ -91,7 +91,7 @@ async function get_language_pie(repo, user, token) {
 
     }
     
-    draw2('myChart', 'pie', 'languages', `${user} Languages (in bytes)`, label, data, backgroundColor);
+    draw2('language', 'pie', 'languages', `💭 ${user} Languages (in bytes) 💭`, label, data, backgroundColor);
 }
 
 function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {  
