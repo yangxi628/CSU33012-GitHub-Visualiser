@@ -46,50 +46,35 @@ async function main(user, token) {
 }
 
 function create_sidebar(user_info) {
-    console.log(user_info)
     let img = document.getElementById('img');
     img.src = user_info.avatar_url
 
     let name = document.getElementById('name');
-    name.innerHTML = user_info.name;
+    name.innerHTML = `<b>Name: </b>${user_info.name}`;
 
     let login = document.getElementById('login');
-    login.innerHTML = user_info.login;
+    login.innerHTML = `<b>Login ID: </b>${user_info.login}`;
 
     let bio = document.getElementById('bio');
-    bio.innerHTML = user_info.bio;
+    bio.innerHTML = `<b>Bio: </b>${user_info.bio}`;
 
     let hireable = document.getElementById('hireable');
-    hireable.innerHTML = (user_info.hireable != null) ? 'Yes' : 'No';
+    hireable.innerHTML = `<b>Hireable: </b>${(user_info.hireable != null) ? 'Yes' : 'No'}`;
 
     let created_at = document.getElementById('created_at');
-    console.log(user_info.created_at)
-    created_at.innerHTML = user_info.created_at;
+    created_at.innerHTML = `<b>Created On: </b>${user_info.created_at}`;
 
     let followers = document.getElementById('followers');
-    followers.innerHTML = user_info.followers;
+    followers.innerHTML = `<b>Followers: </b>${user_info.followers}`;
 
     let following = document.getElementById('following');
-    following.innerHTML = user_info.following;
+    following.innerHTML = `<b>Following: </b>${user_info.following}`;
 
     let location = document.getElementById('location');
-    location.innerHTML = user_info.location;
+    location.innerHTML = `<b>Location: </b>${user_info.location}`;
 
     let public_repos = document.getElementById('public_repos');
-    public_repos.innerHTML = user_info.public_repos;
-
-    
-    // name
-    // login
-    // bio
-    // email
-    // hireable
-    // create_at
-    // followers
-    // following
-    // location
-    // public_repos
-    // total_private_repos
+    public_repos.innerHTML = `<b>Public Repos: </b>${user_info.public_repos}`;
 }
 
 async function get_commits_polarArea(repo, user, token) {
