@@ -10,7 +10,7 @@ Integrating the **[GitHub REST API v3](https://developer.github.com/v3/)** to bu
 
 > Integrate the GitHub API to retrieve and display data regarding the logged in developer: **[HERE](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/releases/tag/v1.0)**
 
-> Integrate the GitHub API to build a visualisation of data available that elucidates some aspect of the software engineering process, such as a social graph of developers and projects, or a visualisation of individual of team performance: **[CURRENT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/)**
+> Integrate the GitHub API to build a visualisation of data available that elucidates some aspect of the software engineering process, such as a social graph of developers and projects, or a visualisation of individual of team performance: **[CURRENT](https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser/releases/tag/v2.0)**
 
 ## Prerequisites
 
