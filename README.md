@@ -4,7 +4,7 @@
 
 <!-- Badges -->
 
-Integrating the **[GitHub REST API v3](https://developer.github.com/v3/)** to build a visualisation of the data available to elucidate an aspect of the software engineering process using the **[D3js](https://d3js.org)** library to visualise the data.
+Integrating the **[GitHub REST API v3](https://developer.github.com/v3/)** to build a visualisation of the data available to elucidate an aspect of the software engineering process using the **[Chart.js](https://www.chartjs.org/)** library to visualise the data.
 
 ## Getting Started
 
