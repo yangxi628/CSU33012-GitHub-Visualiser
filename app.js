@@ -135,7 +135,7 @@ async function get_language_pie(repo, user, token) {
 
     }
 
-    draw2('language', 'pie', 'languages', `💭 ${user} Languages (in bytes) 💭`, label, data, backgroundColor);
+    draw2('language', 'pie', 'languages', `💭 Programming Languages (in bytes) 💭`, label, data, backgroundColor);
 }
 
 async function get_addition_deletion(repos, user, token) {
@@ -167,7 +167,7 @@ async function get_addition_deletion(repos, user, token) {
     addition = addition.filter(x => x != undefined)
     deletion = deletion.filter(x => x != undefined)
 
-    draw3('insertion', 'bar', 'line', '🧐 Additions, Deletions and Commits per Repository 🧐', label, commits, deletion, addition);
+    draw3('insertion', 'bar', 'line', '🟩 Additions, Deletions and Commits per Repository 🟥', label, commits, deletion, addition);
 }
 
 function draw1(ctx, type, datasetLabel, titleText, label, data, backgroundColor) {
