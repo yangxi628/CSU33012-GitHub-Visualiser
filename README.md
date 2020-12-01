@@ -24,6 +24,11 @@ For a less restricted access experience to the GitHub API, you will need an Auth
 
 ## Installation
 
+To run this project you can view it on the GitHub Pages:\
+[```https://ahmedhamedaly.github.io/CSU33012-GitHub-Visualiser/```](https://ahmedhamedaly.github.io/CSU33012-GitHub-Visualiser/)
+
+<ins>OR</ins>
+
 To run this project you need to clone the repository:\
 ```git clone https://github.com/ahmedhamedaly/CSU33012-GitHub-Visualiser.git```\
 ```cd CSU33012-GitHub-Visualiser```
@@ -45,6 +50,8 @@ To stop the container, we need to use the name we set earlier to the container, 
 ```docker stop github_visualiser```
 
 ## Demo
+
+A demo of this project can be found on [`https://ahmedhamedaly.github.io/CSU33012-GitHub-Visualiser/`](https://ahmedhamedaly.github.io/CSU33012-GitHub-Visualiser/)
 
 The following is a short demonstration of the GitHub Visualiser with, firstly me (`ahmedhamedaly`) and then secondly `torvalds`.
 
